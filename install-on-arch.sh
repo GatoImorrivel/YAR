@@ -43,7 +43,7 @@ paru -Syu
 echo "##############################"
 echo "Installing Picom"
 echo "##############################"
-paru -S picom-jonaburg-git
+paru -S --noconfirm --needed picom-jonaburg-git
 
 echo "##############################"
 echo "Installing alacritty"
@@ -54,11 +54,14 @@ echo "##############################"
 echo "Copying configs"
 echo "##############################"
 
-mkdir ~/.config
+sudo cp -r "$GARKPATH/configs" ~/
+sudo mv ~/configs ~/.config
 
-sudo cp -r "$GARKPATH/configs" ~/.config
+sudo mv ~/.config/bashrc/.bashrc ~/.bashrc
+rm -r ~/.config/bashrc
 
-# Bashrc
-sudo rm ~/.bashrc
+sudo mv ~/.config/xconfigs/.xinit ~/.xinit
+sudo mv ~/.config/xconfigs/.xprofile ~/.xprofile
+rm -r ~/.config/xconfigs
 
-sudo cp "$GARKPATH/configs/.bashrc" ~/.bashrc
+sudo cp -r "$GARKPATH/wallpapers" ~/
