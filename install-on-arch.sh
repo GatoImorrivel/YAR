@@ -50,4 +50,15 @@ echo "Installing alacritty"
 echo "##############################"
 paru -S --noconfirm --needed alacritty
 
+echo "##############################"
+echo "Copying configs"
+echo "##############################"
 
+mkdir ~/.config
+
+sudo cp -r "$GARKPATH/configs" ~/.config
+
+# Bashrc
+sudo rm ~/.bashrc
+
+sudo cp "$GARKPATH/configs/.bashrc" ~/.bashrc
