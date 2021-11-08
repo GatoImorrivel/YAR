@@ -3,16 +3,12 @@
 #
 
 # terminal emulator
-super + shift + Return
+super + Return
 	alacritty
 
 # program launcher
 super + @space
-	rofi -modi drun -show drun
-
-# powermenu
-super + p
-	eww open powermenu
+	dmenu_run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -27,7 +23,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }c
+super + {_,shift + }w
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -71,15 +67,12 @@ super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
-super + bracketleft
-	sh ~/.config/scripts/windowswitch.sh -b
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
 
-super + bracketright
-  sh ~/.config/scripts/windowswitch.sh -n
-
-# focus the last desktop
-super + Tab
-	sh ~/.config/scripts/windowswitch.sh -l
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
@@ -87,31 +80,9 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus to the given desktop
-super + 1
-	sh ~/.config/scripts/windowswitch.sh -c 1
-
-super + 2
-	sh ~/.config/scripts/windowswitch.sh -c 2
-
-super + 3
-	sh ~/.config/scripts/windowswitch.sh -c 3
-
-super + 4
-	sh ~/.config/scripts/windowswitch.sh -c 4
-
-super + 5
-	sh ~/.config/scripts/windowswitch.sh -c 5
-
-super + 6
-	sh ~/.config/scripts/windowswitch.sh -c 6
-
-super + 7
-	sh ~/.config/scripts/windowswitch.sh -c 7
-
-# send to given window
-super + shift + {1-9,0}
-  bspc node -d '^{1-9,10}'
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #
 # preselect

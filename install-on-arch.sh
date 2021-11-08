@@ -51,6 +51,11 @@ echo "##############################"
 paru -S --noconfirm --needed alacritty
 
 echo "##############################"
+echo "Installing polybar"
+echo "##############################"
+paru -S --noconfirm --needed polybar
+
+echo "##############################"
 echo "Copying configs"
 echo "##############################"
 
