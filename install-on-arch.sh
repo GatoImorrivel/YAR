@@ -63,10 +63,10 @@ sudo cp -r "$GARKPATH/configs" ~/
 sudo mv ~/configs ~/.config
 
 sudo mv ~/.config/bashrc/.bashrc ~/.bashrc
-rm -r ~/.config/bashrc
+sudo rm -r ~/.config/bashrc
 
 sudo mv ~/.config/xconfigs/.xinit ~/.xinit
 sudo mv ~/.config/xconfigs/.xprofile ~/.xprofile
-rm -r ~/.config/xconfigs
+sudo rm -r ~/.config/xconfigs
 
 sudo cp -r "$GARKPATH/wallpapers" ~/
