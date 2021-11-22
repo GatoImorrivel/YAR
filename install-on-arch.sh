@@ -56,6 +56,11 @@ echo "##############################"
 paru -S --noconfirm --needed polybar
 
 echo "##############################"
+echo "Installing komorebi"
+echo "##############################"
+paru -S --noconfirm --needed komorebi
+
+echo "##############################"
 echo "Copying configs"
 echo "##############################"
 

@@ -1,8 +1,5 @@
 # Setting keyboard layout
 setxkbmap -layout br &
 
-# Setting wallpaper
-xwallpaper --zoom ~/wallpapers/*.*
-
 # Polybar path
 polybar -c ~/.config/polybar
