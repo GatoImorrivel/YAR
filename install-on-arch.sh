@@ -53,12 +53,12 @@ paru -S --noconfirm --needed alacritty
 echo "##############################"
 echo "Installing polybar"
 echo "##############################"
-paru -S --noconfirm --needed polybar
+paru -S --needed polybar
 
 echo "##############################"
-echo "Installing komorebi"
+echo "Installing wallset"
 echo "##############################"
-paru -S --noconfirm --needed komorebi
+paru -S --noconfirm --needed wallset
 
 echo "##############################"
 echo "Copying configs"

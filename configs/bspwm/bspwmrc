@@ -8,8 +8,8 @@ eww kill
 # Autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom &
-eww daemon
-eww open bar
+wallset --video ~/.config/wallpapers/*.*
+polybar -c=~/.config/polybar/bar
 
 # Monitors
 bspc monitor -d 1 2 3 4 5 6 7
