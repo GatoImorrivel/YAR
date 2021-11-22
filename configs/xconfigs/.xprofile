@@ -1,5 +1,2 @@
 # Setting keyboard layout
 setxkbmap -layout br &
-
-# Polybar path
-polybar -c ~/.config/polybar
