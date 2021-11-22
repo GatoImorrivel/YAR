@@ -19,7 +19,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit\
     npm                             \
     xclip                           \
     cmake                           \
-    nerd-fonts-complete
+    ttf-nerd-fonts-symbols
 
 # Setup lightdm
 sudo systemctl enable lightdm &
