@@ -46,7 +46,8 @@ module-margin = 1
 separator = |
 separator-foreground = ${colors.disabled}
 
-font-0 = Ubuntu Mono;2
+font-0 = Ubuntu Mono:pixelsize=12:antialias=true;2
+font-1 = Symbols Nerd Font:antialias=true;2
 
 modules-left = xworkspaces xwindow
 modules-right = filesystem xkeyboard memory cpu date powermenu
@@ -137,7 +138,7 @@ label-foreground = ${colors.primary}
 [module/powermenu]
 type = custom/menu
 
-format-foreground = ${colors.xcolor7}
+format-foreground = ${colors.primary}
 format-background = ${colors.xcolor0}
 
 
@@ -145,18 +146,18 @@ label-open = "⏻"
 label-open-font = 4
 label-close = ""
 label-close-foreground = ${colors.lime}
-label-separator = " / "
-label-separator-foreground = ${colors.xcolor1}
+label-separator = " | "
+label-separator-foreground = ${colors.disabled}
 
 
 ; reboot
 menu-0-1 = "Reboot"
 menu-0-1-exec = systemctl reboot
-menu-0-1-foreground = ${colors.salmon}
+menu-0-1-foreground = ${colors.primary}
 ; shutdown
 menu-0-0 = "Shutdown"
 menu-0-0-exec = systemctl poweroff
-menu-0-0-foreground = ${colors.salmon}
+menu-0-0-foreground = ${colors.primary}
 
 [settings]
 screenchange-reload = true
