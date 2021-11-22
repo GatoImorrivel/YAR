@@ -13,6 +13,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit\
     lightdm lightdm-gtk-greeter     \
     git python3 gcc base-devel      \
     xwallpaper                      \
+    mpv                             \
     ttf-ubuntu-font-family          \
     rofi                            \
     npm                             \
@@ -56,9 +57,9 @@ echo "##############################"
 paru -S --needed polybar
 
 echo "##############################"
-echo "Installing wallset"
+echo "Installing xwinwrap"
 echo "##############################"
-paru -S --noconfirm --needed wallset
+paru -S --needed xwinwrap
 
 echo "##############################"
 echo "Copying configs"

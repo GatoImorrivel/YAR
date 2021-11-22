@@ -3,13 +3,14 @@
 # Killing any possible previous processes
 killall -q picom
 killall -q sxhkd
-eww kill
+killall -q polybar
 
 # Autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom &
-wallset --video ~/.config/wallpapers/*.*
-polybar -c=~/.config/polybar/bar
+
+#! set your resolution on the g flag
+xwinwrap -ov -g 1920x1080+0+0 -- mpv -wid WID ~/wallpapers/wallpaper.mp4 --no-osc --no-osd-bar --loop-file --player-operation-mode=cplayer --no-audio --panscan=1.0 --no-input-default-bindings
 
 # Monitors
 bspc monitor -d 1 2 3 4 5 6 7
@@ -20,7 +21,7 @@ bspc config pointer_action1 move
 bspc config pointer_action2 resize_corner
 
 # Settings
-bspc config focused_border_color    "#E43F5A"  
+bspc config focused_border_color    "#f79b31"  
 bspc config normal_border_color     "#162447"
 
 bspc config top_padding         20
@@ -37,3 +38,6 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+
+# Polybar launch
+polybar -c=~/.config/polybar/bar mybar
