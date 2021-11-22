@@ -38,7 +38,7 @@ line-size = 3
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
+padding-left = 1
 padding-right = 1
 
 module-margin = 1
@@ -49,21 +49,29 @@ separator-foreground = ${colors.disabled}
 font-0 = Ubuntu Mono:pixelsize=12:antialias=true;2
 font-1 = Symbols Nerd Font:antialias=true;2
 
-modules-left = xworkspaces xwindow
-modules-right = filesystem xkeyboard memory cpu date powermenu
+modules-left = archlogo xworkspaces xwindow
+modules-right = filesystem user xkeyboard network memory cpu date powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 enable-ipc = true
 
-; tray-position = right
+wm-restack = bspwm
 
-; wm-restack = generic
-; wm-restack = bspwm
-; wm-restack = i3
+[module/archlogo]
+type = custom/text
+content = ""
 
-; override-redirect = true
+[module/user]
+type = custom/script
+exec = echo $(whoami)@(cat /etc/hostname)
+
+[module/network]
+type = custom/script
+exec-if = hash speedtest
+exec = sh ~/.config/polybar/networkchecker.sh
+interval = 30
 
 [module/xworkspaces]
 type = internal/xworkspaces
@@ -92,7 +100,7 @@ label = %title:0:60:...%
 type = internal/fs
 interval = 25
 
-mount-0 = /
+mount-0 = ""
 
 label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
 
