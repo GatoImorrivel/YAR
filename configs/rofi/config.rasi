@@ -6,8 +6,7 @@ configuration {
     location: 						0;
     padding: 						0;
     fixed-num-lines: 				true;
-    show-icons: 					true;
-    icon-theme:						"papirus-icons";
+    show-icons: 					false;
     sidebar-mode: 					false;
     separator-style: 				"none";
     hide-scrollbar: 				true;
@@ -33,7 +32,7 @@ configuration {
 
 window {
     border: 2px;
-    border-color: rgb(115, 155, 255);
+    border-color: @maincolor;
     background-color: @bg;
     border-radius: 15px;
     width: 							35%;
@@ -54,7 +53,7 @@ textbox-prompt-colon {
 
 entry {
     spacing:    					0;
-    text-color: 					@myred;
+    text-color: 					@maincolor;
 }
 
 case-indicator {
@@ -71,7 +70,7 @@ inputbar {
 
 mainbox {
     border: 						0px;
-    border-color: 					@ac;
+    border-color: 					@maincolor;
     border-radius: 15px;
     padding: 						6;
 }
@@ -104,7 +103,7 @@ element normal.active {
 }
 element selected.normal {
     background-color: 				@bg;
-    text-color:       				@myred;
+    text-color:       				@maincolor;
 }
 element selected.urgent {
     background-color: 				@bg;
