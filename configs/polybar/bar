@@ -62,15 +62,18 @@ wm-restack = bspwm
 [module/archlogo]
 type = custom/text
 content = ""
+content-foreground = ${colors.primary}
 
 [module/user]
-type = custom/script
-exec = echo $(whoami)@(cat /etc/hostname)
+type = custom/ipc
+hook-0 = echo $(whoami)@$(cat /etc/hostname)
+initial = 1
 
 [module/network]
 type = custom/script
 exec-if = hash speedtest
 exec = sh ~/.config/polybar/networkchecker.sh
+label = %output%
 interval = 30
 
 [module/xworkspaces]
@@ -100,9 +103,9 @@ label = %title:0:60:...%
 type = internal/fs
 interval = 25
 
-mount-0 = ""
+mount-0 = "/"
 
-label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
+label-mounted = %{F#F0C674}: %mountpoint%%{F-} %percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}
@@ -138,7 +141,7 @@ type = internal/date
 interval = 1
 
 date = %H:%M
-date-alt = %Y-%m-%d %H:%M:%S
+date-alt = %A %d-%m-%Y %H:%M:%S
 
 label = %date%
 label-foreground = ${colors.primary}

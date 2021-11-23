@@ -19,6 +19,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit\
     npm                             \
     xclip                           \
     cmake                           \
+    speedtest-cli                   \
     ttf-nerd-fonts-symbols
 
 # Setup lightdm
@@ -68,6 +69,9 @@ echo "##############################"
 
 sudo cp -r "$GARKPATH/configs" ~/
 sudo mv ~/configs ~/.config
+
+sudo chmod +x ~/.config/polybar/networkscript.py
+sudo chmod +x ~/.config/polybar/networkchecker.sh
 
 sudo mv ~/.config/bashrc/.bashrc ~/.bashrc
 sudo rm -r ~/.config/bashrc
