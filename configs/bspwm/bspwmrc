@@ -4,13 +4,14 @@
 killall -q picom
 killall -q sxhkd
 killall -q polybar
+killall -q xwinwrap
 
 # Autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom &
 polybar -c=~/.config/polybar/bar mybar &
 
-#! set your resolution on the g flag
+# set your resolution on the g flag
 xwinwrap -ov -g 1920x1080+0+0 -- mpv -wid WID ~/wallpapers/wallpaper.mp4 --no-osc --no-osd-bar --loop-file --player-operation-mode=cplayer --no-audio --panscan=1.0 --no-input-default-bindings &
 
 # Monitors
