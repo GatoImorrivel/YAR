@@ -6,8 +6,14 @@ All of the settings are made with **1920x1080** in mind, functionality in other 
 
 - TWM - BSPWM
 - Compositor - Picom
-- App launcher - rofi
+- App Launcher - rofi
 - Bar - PolyBar
+- Animated Wallpaper - xwinwrap
+
+# Screenshots
+<img src='/screenshots/wall.png'>
+<img src='/screenshots/averageunixpornuser.png'>
+<img src='/screenshots/rofi.png'>
 
 # Installing
 
