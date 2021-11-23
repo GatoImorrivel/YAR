@@ -32,7 +32,7 @@ except:
 
 if args.upload:
     s.upload(pre_allocate=False)
-    print(" " + get_formatted_speed(s.results.upload,args.bytes))
+    print(get_formatted_speed(s.results.upload,args.bytes))
 else:
     s.download()
-    print(" " + get_formatted_speed(s.results.download,args.bytes))
+    print(get_formatted_speed(s.results.download,args.bytes))

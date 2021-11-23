@@ -1,14 +1,14 @@
 DOWNLOAD="$(~/.config/polybar/networkscript.py)"
-UPLOAD= "$(~/.config/polybar/networkscript.py --upload)"
+UPLOAD="$(~/.config/polybar/networkscript.py --upload)"
 
 PRIMARYCOLOR="$(cat ~/.config/polybar/bar | grep "primary = #")"
 FOREGROUNDCOLOR="$(cat ~/.config/polybar/bar | grep "foreground = #")"
 
 PRIMARYCOLOR="${PRIMARYCOLOR#"primary = #"}"
-PRIMARYCOLOR="${FOREGROUNDCOLOR#"foreground = #"}"
+FOREGROUNDCOLOR="${FOREGROUNDCOLOR#"foreground = #"}"
 
-ARROWCOLOR="%{F$PRIMARYCOLOR}"
-TEXTCOLOR="%{F$FOREGROUNDCOLOR}"
+ARROWCOLOR="%{F#$PRIMARYCOLOR}"
+TEXTCOLOR="%{F#$FOREGROUNDCOLOR}"
 DISCONNECTED='Disconnected'
 
 if [ "$DOWNLOAD" = "" ]; then
