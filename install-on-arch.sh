@@ -1,4 +1,4 @@
-GARKPATH="$(pwd)"
+YARPATH="$(pwd)"
 
 # Update pacman
 echo "Updating pacman, just wait a little"
@@ -19,7 +19,6 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit\
     npm                             \
     xclip                           \
     cmake                           \
-    speedtest-cli                   \
     ttf-nerd-fonts-symbols
 
 # Setup lightdm
@@ -64,14 +63,21 @@ echo "##############################"
 paru -S --needed xwinwrap
 
 echo "##############################"
+echo "Installing pywal"
+echo "##############################"
+paru -S --needed python3-pywal
+
+echo "##############################"
 echo "Copying configs"
 echo "##############################"
 
-sudo cp -r "$GARKPATH/configs" ~/
+sudo cp -r "$YARPATH/configs" ~/
 sudo mv ~/configs ~/.config
 
 sudo chmod +x ~/.config/polybar/networkscript.py
 sudo chmod +x ~/.config/polybar/networkchecker.sh
+
+sudo chmod +x ~/.config/scripts/generatecolorscheme.sh
 
 sudo mv ~/.config/bashrc/.bashrc ~/.bashrc
 sudo rm -r ~/.config/bashrc
@@ -80,4 +86,4 @@ sudo mv ~/.config/xconfigs/.xinit ~/.xinit
 sudo mv ~/.config/xconfigs/.xprofile ~/.xprofile
 sudo rm -r ~/.config/xconfigs
 
-sudo cp -r "$GARKPATH/wallpapers" ~/
+sudo cp -r "$YARPATH/wallpapers" ~/
