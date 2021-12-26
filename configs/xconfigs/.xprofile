@@ -1,2 +1,4 @@
 # Setting keyboard layout
 setxkbmap -layout br &
+
+xrdb ~/.cache/wal/colors.Xresources

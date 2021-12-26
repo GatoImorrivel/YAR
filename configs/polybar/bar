@@ -17,87 +17,64 @@
 ;==========================================================
 
 [colors]
-background = #282A2E
-background-alt = #373B41
-foreground = #C5C8C6
-primary = #F0C674
-secondary = #8ABEB7
-alert = #A54242
+background = ${xrdb:color0:#222}
+background-alt = ${xrdb:color8:#222}
+foreground = ${xrdb:color15:#222}
+primary = ${xrdb:color14:#222}
+secondary = ${xrdb:color9:#222}
+alert = #800000
 disabled = #707880
 
 [bar/mybar]
 width = 100%
-height = 2.5%
+height = 2.2%
 radius = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 1
-padding-right = 1
+line-size = 2
 
 module-margin = 1
 
-separator = |
-separator-foreground = ${colors.disabled}
+font-0 = Cascadia Code:pixelsize=12:antialias=true;2
+font-1 = Symbols Nerd Font:antialias=true;3
 
-font-0 = Ubuntu Mono:pixelsize=12:antialias=true;2
-font-1 = Symbols Nerd Font:antialias=true;2
+font-2 = Cascadia Code:pixelsize=9:antialias=true;2
 
 modules-left = archlogo xworkspaces xwindow
-modules-right = filesystem user xkeyboard pulseaudio eth wlan netspeedeth netspeedwlan memory cpu date powermenu
+modules-center = date
+modules-right = netspeedeth netspeedwlan separator pulseaudio separator xkeyboard separator memory separator cpu separator powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+border-bottom-size = 4
+border-color = ${colors.secondary}
 
 enable-ipc = true
 
 wm-restack = bspwm
 
+[module/separator]
+type = custom/text
+content = " "
+
 [module/archlogo]
 type = custom/text
 content = ""
-content-foreground = ${colors.primary}
-
-[module/user]
-type = custom/ipc
-hook-0 = echo $(whoami)@$(cat /etc/hostname)
-initial = 1
-
-[network-base]
-type = internal/network
-interval = 3.0
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-label-connected = %{F#F0C674}%ifname%%{F#707880} connected 
-label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-5 = 
+content-padding = 1
+content-foreground = ${colors.background}
+content-background = ${colors.secondary}
 
 [netspeed-base]
 type = internal/network
 interval = 3.0
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-connected = %{F#F0C674} %{F#707880}%downspeed%  %{F#F0C674} %{F#707880}%upspeed%
-label-disconnected = 
-
-[module/eth]
-inherit = network-base
-interface = enp0s3
-
-[module/wlan]
-inherit = network-base
-interace = wlan1
+label-connected =  %{T3}%downspeed%   %upspeed%
+label-connected-foreground = ${colors.foreground}
+label-disconnected =
 
 [module/netspeedeth]
 inherit = netspeed-base
@@ -112,24 +89,34 @@ type = internal/pulseaudio
 
 use-ui-max = false
 
-format-volume-prefix = "Vol "
-format-volume-prefix-foreground = ${colors.primary}
-format-volume = <label-volume>
+format-volume-prefix = " "
+format-volume-prefix-foreground = ${colors.foreground}
+format-volume = <bar-volume>
 
-label-volume = %percentage%%
+label-volume = " "
 
-label-muted = muted
+bar-volume-width = 10
+bar-volume-gradient = true
+bar-volume-indicator = ⏽
+bar-volume-fill = 
+bar-volume-empty = 
+bar-volume-empty-foreground = ${colors.secondary}
+
+label-muted = "ﳌ"
 label-muted-foreground = ${colors.disabled}
 
 [module/xworkspaces]
 type = internal/xworkspaces
 
+pin-workspaces = true
+
 label-active = 
 label-active-background = ${colors.background-alt}
-label-active-underline= ${colors.primary}
+label-active-foreground = ${colors.primary}
 label-active-padding = 1
 
 label-occupied = 
+label-occupied-foreground = ${colors.secondary}
 label-occupied-padding = 1
 
 label-urgent = 
@@ -159,26 +146,26 @@ label-unmounted-foreground = ${colors.disabled}
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-label-layout = %layout%
-label-layout-foreground = ${colors.primary}
+label-layout =  %layout%
+label-layout-foreground = ${colors.foreground}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-foreground = ${colors.background}
-label-indicator-background = ${colors.secondary}
+label-indicator-foreground = ${colors.foreground}
+label-indicator-background = ${colors.primary}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "RAM "
-format-prefix-foreground = ${colors.primary}
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
 label = %percentage_used:2%%
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU "
-format-prefix-foreground = ${colors.primary}
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
 label = %percentage:2%%
 
 [module/date]
@@ -189,34 +176,35 @@ date = %H:%M
 date-alt = %A %d/%m/%Y %H:%M:%S
 
 label = %date%
-label-foreground = ${colors.primary}
+label-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
 
-format-foreground = ${colors.primary}
-format-background = ${colors.xcolor0}
+format-foreground = ${colors.background}
+format-background = ${colors.secondary}
+format-padding = 1
 
 
 label-open = "⏻"
 label-open-font = 4
 label-close = ""
-label-close-foreground = ${colors.lime}
+label-close-foreground = ${colors.background}
 label-separator = " | "
-label-separator-foreground = ${colors.disabled}
+label-separator-foreground = ${colors.background}
 
 
 ; reboot
 menu-0-1 = "Reboot"
 menu-0-1-exec = systemctl reboot
-menu-0-1-foreground = ${colors.primary}
+menu-0-1-foreground = ${colors.background}
 ; shutdown
 menu-0-0 = "Shutdown"
 menu-0-0-exec = systemctl poweroff
-menu-0-0-foreground = ${colors.primary}
+menu-0-0-foreground = ${colors.background}
 
 [settings]
 screenchange-reload = true
-pseudo-transparency = true
+pseudo-transparency = false
 
 ; vim:ft=dosini

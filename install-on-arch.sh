@@ -14,7 +14,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit\
     git python3 gcc base-devel      \
     xwallpaper                      \
     mpv                             \
-    ttf-ubuntu-font-family          \
+    ttf-cascadia-code               \
     rofi                            \
     npm                             \
     xclip                           \
@@ -65,7 +65,7 @@ paru -S --needed xwinwrap
 echo "##############################"
 echo "Installing pywal"
 echo "##############################"
-paru -S --needed python3-pywal
+paru -S --needed pywal
 
 echo "##############################"
 echo "Copying configs"
@@ -74,10 +74,11 @@ echo "##############################"
 sudo cp -r "$YARPATH/configs" ~/
 sudo mv ~/configs ~/.config
 
-sudo chmod +x ~/.config/polybar/networkscript.py
-sudo chmod +x ~/.config/polybar/networkchecker.sh
+sudo cp ~/.configs/scripts/generatecolorscheme.sh /bin/generatecolorscheme
+sudo cp ~/.configs/scripts/setwallpaper.sh /bin/setwallpaper
 
-sudo chmod +x ~/.config/scripts/generatecolorscheme.sh
+sudo chmod +x /bin/setwallpaper
+sudo chmod +x /bin/generatecolorscheme
 
 sudo mv ~/.config/bashrc/.bashrc ~/.bashrc
 sudo rm -r ~/.config/bashrc
@@ -87,3 +88,5 @@ sudo mv ~/.config/xconfigs/.xprofile ~/.xprofile
 sudo rm -r ~/.config/xconfigs
 
 sudo cp -r "$YARPATH/wallpapers" ~/
+
+wal -i "$YARPATH/wallpapers/squidswimmer.jpg" -n

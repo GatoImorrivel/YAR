@@ -13,16 +13,16 @@ window:
 
 font:
   normal:
-    family: Ubuntu Mono
+    family: Cascadia Code
     
   bold:
-    family: Ubuntu Mono
+    family: Cascadia Code
 
   italic:
-    family: Ubuntu Mono
+    family: Cascadia Code
 
   bold_italic:
-    family: Ubuntu Mono
+    family: Cascadia Code
 
   size: 12
 

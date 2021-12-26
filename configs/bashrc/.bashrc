@@ -7,7 +7,6 @@
 
 alias ls='ls --color=auto'
 alias pac='sudo pacman -Syu'
-alias neofetch='neofetch --source ~/.config/neofetch/ascii'
 alias generatecolorscheme='sh ~/.config/scripts/generatecolorscheme.sh'
 
 BLACK="\[\e[30m\]"
@@ -19,4 +18,4 @@ RED="\[\e[31m\]"
 WHITE="\[\e[37m\]"
 YELLOW="\[\e[33m\]"
 
-PS1="${YELLOW}[${CYAN}\u${RED}@${CYAN}\H ${RED}\W${YELLOW}]${RED}\\$\]${WHITE} "
+PS1="${CYAN}\W ${GREEN}${WHITE} "
