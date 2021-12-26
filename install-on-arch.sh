@@ -63,11 +63,6 @@ echo "##############################"
 paru -S --needed xwinwrap
 
 echo "##############################"
-echo "Installing pywal"
-echo "##############################"
-paru -S --needed pywal
-
-echo "##############################"
 echo "Copying configs"
 echo "##############################"
 
@@ -88,5 +83,10 @@ sudo mv ~/.config/xconfigs/.xprofile ~/.xprofile
 sudo rm -r ~/.config/xconfigs
 
 sudo cp -r "$YARPATH/wallpapers" ~/
+
+echo "##############################"
+echo "Installing pywal"
+echo "##############################"
+paru -S --needed pywal
 
 wal -i "$YARPATH/wallpapers/squidswimmer.jpg" -n
