@@ -18,4 +18,6 @@ RED="\[\e[31m\]"
 WHITE="\[\e[37m\]"
 YELLOW="\[\e[33m\]"
 
+cat ~/.cache/wal/sequences
+
 PS1="${CYAN}\W ${GREEN}${WHITE} "

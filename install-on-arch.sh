@@ -69,8 +69,8 @@ echo "##############################"
 sudo cp -r "$YARPATH/configs" ~/
 sudo mv ~/configs ~/.config
 
-sudo cp ~/.configs/scripts/generatecolorscheme.sh /bin/generatecolorscheme
-sudo cp ~/.configs/scripts/setwallpaper.sh /bin/setwallpaper
+sudo cp ~/.config/scripts/generatecolorscheme.sh /bin/generatecolorscheme
+sudo cp ~/.config/scripts/setwallpaper.sh /bin/setwallpaper
 
 sudo chmod +x /bin/setwallpaper
 sudo chmod +x /bin/generatecolorscheme
@@ -84,9 +84,11 @@ sudo rm -r ~/.config/xconfigs
 
 sudo cp -r "$YARPATH/wallpapers" ~/
 
+sudo chmod 777 ~/.config/ -R
+
 echo "##############################"
 echo "Installing pywal"
 echo "##############################"
 paru -S --needed pywal
 
-wal -i "$YARPATH/wallpapers/squidswimmer.jpg" -n
+wal -i "$HOME/wallpaper/squidswimmer.jpg" -n
