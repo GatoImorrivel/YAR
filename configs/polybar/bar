@@ -152,7 +152,7 @@ label-layout-foreground = ${colors.foreground}
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-foreground = ${colors.foreground}
-label-indicator-background = ${colors.primary}
+label-indicator-background = ${colors.secondary}
 
 [module/memory]
 type = internal/memory

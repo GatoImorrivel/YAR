@@ -91,8 +91,6 @@ echo "Installing pywal"
 echo "##############################"
 paru -Syu pywal
 
-wal -i "$HOME/wallpaper/squidswimmer.jpg" -n
-
 echo "##############################"
 echo "Installing pywalfox/pywal-discord"
 echo "##############################"
