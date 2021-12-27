@@ -62,6 +62,45 @@ echo "Installing xwinwrap"
 echo "##############################"
 paru -S --needed xwinwrap
 
+sudo chmod 777 ~/.config/ -R
+
+echo "##############################"
+echo "Installing pywal"
+echo "##############################"
+paru -Syu pywal
+
+echo "##############################"
+echo "Installing programs"
+echo "##############################"
+
+echo "##############################"
+echo "NOTE: installing programs now will also add them to the generatecolorscheme script"
+echo "##############################"
+
+sleep 2
+
+echo "Do you want to install Discord? 1) yes    2) no"
+read -r -p "(Default: 1): " discord
+
+if [ -z $discord ] || [ $discord -eq "1" ]; then
+    sudo pacman -Syu discord
+    
+    paru -Syu pywal-discord && echo pywal-discord >> $YARPATH/configs/scripts/generatecolorscheme.sh
+    
+    curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
+    sudo chmod +x betterdiscordctl
+    sudo mv betterdiscordctl /usr/local/bin
+fi
+
+echo "Do you want to install Firefox? 1) yes    2) no"
+read -r -p "(Default: 1): " firefox
+
+if [ -z $firefox ] || [ $firefox -eq "1" ]; then
+    sudo pacman -Syu firefox
+    
+    paru -Syu python-pywalfox && echo pywalfox update >> $YARPATH/configs/scripts/generatecolorscheme.sh
+fi
+
 echo "##############################"
 echo "Copying configs"
 echo "##############################"
@@ -84,21 +123,14 @@ sudo rm -r ~/.config/xconfigs
 
 sudo cp -r "$YARPATH/wallpapers" ~/
 
-sudo chmod 777 ~/.config/ -R
-
 echo "##############################"
-echo "Installing pywal"
-echo "##############################"
-paru -Syu pywal
-
-echo "##############################"
-echo "Installing pywalfox/pywal-discord"
+echo "Setting up default colors"
 echo "##############################"
 
-paru -Syu pywal-discord python-pywalfox
+DEFAULTWALL="$HOME/wallpapers/purple.jpeg"
 
-echo "##############################"
-echo "Installing programs"
-echo "##############################"
+echo $DEFAULTWALL > $HOME/.currentwallpaper
+wal -i $DEFAULTWALL -n
 
-sudo pacman -Syu firefox discord
+nvim $YARPATH/postinstallwarning
+

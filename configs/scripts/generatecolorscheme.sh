@@ -14,5 +14,5 @@ wal -i $(readlink -f $1) -n
 
 cp $HOME/.cache/wal/colors.Xresources $HOME/.Xresources
 
-pywal-discord
-pywalfox update
+# pywal-discord
+# pywalfox update
