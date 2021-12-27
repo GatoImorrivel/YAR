@@ -1,32 +1,18 @@
-COLORSDIR="$HOME/.config/colors"
-WALCACHE="$HOME/.cache/wal"
+#!/bin/bash
 
-WALLPAPER=$2
-SATURATION=$1
-
-if [[ "$1" = "-h" ]] || [[ "$1" = "--help" ]]; then
-	printf "first argument is saturation (value between 0-1)\nsecond argument is the wallpaper file\n"
-	exit 3
-fi
-
-[ ! -d "$COLORSDIR" ] && mkdir -p "$COLORSDIR"
-
-if [ "$SATURATION" -lt "0" ] || [ "$SATURATION" -gt "1" ]; then
-	echo "Invalid saturation level. Must be between 0-1"
+if [ -z $1 ]; then
+	echo "First argument is the path to the file"
 	exit 1
 fi
 
-if [ ! -f "$(realpath $WALLPAPER)" ]; then
-	echo "File doesnt exist"
+if [ ! -f $1 ]; then
+	echo "file: '$1' doesn't exist"
 	exit 2
 fi
 
-copyColors() {
-	[ -f "$COLORSDIR/*" ] && sudo rm "$COLORSDIR/*"
-	sudo cp "$WALCACHE/colors.sh" $COLORSDIR
-	sudo cp "$WALCACHE/colors.yml" $COLORSDIR
-	sudo cp "$WALCACHE/colors.Xresources" $COLORSDIR
-	sudo cp "$WALCACHE/colors-rofi-dark.rasi" $COLORSDIR
-}
+wal -i $(readlink -f $1) -n
 
-wal -s -t -n --saturate $SATURATION -i $WALLPAPER && copyColors
+cp $HOME/.cache/wal/colors.Xresources $HOME/.Xresources
+
+pywal-discord
+pywalfox update

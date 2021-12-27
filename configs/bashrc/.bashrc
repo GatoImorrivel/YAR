@@ -7,7 +7,6 @@
 
 alias ls='ls --color=auto'
 alias pac='sudo pacman -Syu'
-alias generatecolorscheme='sh ~/.config/scripts/generatecolorscheme.sh'
 
 BLACK="\[\e[30m\]"
 BLUE="\[\e[34m\]"

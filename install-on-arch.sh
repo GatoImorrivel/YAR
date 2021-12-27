@@ -89,6 +89,18 @@ sudo chmod 777 ~/.config/ -R
 echo "##############################"
 echo "Installing pywal"
 echo "##############################"
-paru -S --needed pywal
+paru -Syu pywal
 
 wal -i "$HOME/wallpaper/squidswimmer.jpg" -n
+
+echo "##############################"
+echo "Installing pywalfox/pywal-discord"
+echo "##############################"
+
+paru -Syu pywal-discord python-pywalfox
+
+echo "##############################"
+echo "Installing programs"
+echo "##############################"
+
+sudo pacman -Syu firefox discord

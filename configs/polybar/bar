@@ -111,8 +111,8 @@ type = internal/xworkspaces
 pin-workspaces = true
 
 label-active = 
-label-active-background = ${colors.background-alt}
-label-active-foreground = ${colors.primary}
+label-active-background = ${colors.background}
+label-active-foreground = ${colors.foreground}
 label-active-padding = 1
 
 label-occupied = 
