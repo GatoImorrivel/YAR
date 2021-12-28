@@ -105,8 +105,20 @@ echo "##############################"
 echo "Copying configs"
 echo "##############################"
 
-sudo cp -r "$YARPATH/configs" ~/
-sudo mv ~/configs ~/.config
+if [ -d $HOME/.config ]; then
+    sudo cp -r $YARPATH/configs/alacritty ~/.config
+    sudo cp -r $YARPATH/configs/bashrc ~/.config
+    sudo cp -r $YARPATH/configs/bspwm ~/.config
+    sudo cp -r $YARPATH/configs/picom ~/.config
+    sudo cp -r $YARPATH/configs/polybar ~/.config
+    sudo cp -r $YARPATH/configs/rofi ~/.config
+    sudo cp -r $YARPATH/configs/scripts ~/.config
+    sudo cp -r $YARPATH/configs/sxhkd ~/.config
+    sudo cp -r $YARPATH/configs/xconfigs ~/.config
+else
+    sudo cp -r "$YARPATH/configs" ~/
+    sudo mv ~/configs ~/.config
+fi
 
 sudo cp ~/.config/scripts/generatecolorscheme.sh /bin/generatecolorscheme
 sudo cp ~/.config/scripts/setwallpaper.sh /bin/setwallpaper
@@ -120,7 +132,6 @@ sudo rm -r ~/.config/bashrc
 sudo mv ~/.config/xconfigs/.xinit ~/.xinit
 sudo mv ~/.config/xconfigs/.xprofile ~/.xprofile
 sudo rm -r ~/.config/xconfigs
-
 sudo cp -r "$YARPATH/wallpapers" ~/
 
 echo "##############################"
