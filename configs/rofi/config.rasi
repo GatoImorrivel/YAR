@@ -1,7 +1,7 @@
 configuration {
     lines:							10;
     columns:						1;
-    font: 							"Ubuntu Mono 14";
+    font: 							"Cascadia Code 14";
     bw: 							0;
     location: 						0;
     padding: 						0;
@@ -24,16 +24,16 @@ configuration {
     display-drun: 					"";
 }
 
-@import "launcher.rasi"
+@import "~/.cache/wal/colors-rofi-dark.rasi"
 
 * {
-    background-color:             	@bg;
+    background-color:             	@normal-background;
 }
 
 window {
     border: 2px;
-    border-color: @maincolor;
-    background-color: @bg;
+    border-color: @active-background;
+    background-color: @normal-background;
     border-radius: 15px;
     width: 							35%;
 }
@@ -41,7 +41,7 @@ window {
 prompt {
     spacing: 						0;
     border: 						0;
-    text-color: 					@fg;
+    text-color: 					@urgent-foreground;
 }
 
 textbox-prompt-colon {
@@ -53,24 +53,24 @@ textbox-prompt-colon {
 
 entry {
     spacing:    					0;
-    text-color: 					@maincolor;
+    text-color: 					@active-foreground;
 }
 
 case-indicator {
     spacing:    					0;
-    text-color: 					@fg;
+    text-color: 					@active-foreground;
 }
 
 inputbar {
     spacing:    					0px;
-    text-color: 					@fg;
+    text-color: 					@active-foreground;
     padding:    					10px;
     children: 						[ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 
 mainbox {
     border: 						0px;
-    border-color: 					@maincolor;
+    border-color: 					@active-foreground;
     border-radius: 15px;
     padding: 						6;
 }
@@ -90,40 +90,40 @@ element {
     padding: 						5px;
 }
 element normal.normal {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 				@normal-background;
+    text-color:       				@active-foreground;
 }
 element normal.urgent {
-    background-color: 				@bg;
-    text-color:       				@red;
+    background-color: 				@normal-background;
+    text-color:       				@urgent-background;
 }
 element normal.active {
-    background-color: 				@green;
-    text-color:       				@bg;
+    background-color: 				@active-background;
+    text-color:       				@normal-background;
 }
 element selected.normal {
-    background-color: 				@bg;
-    text-color:       				@maincolor;
+    background-color: 				@normal-background;
+    text-color:       				@active-background;
 }
 element selected.urgent {
-    background-color: 				@bg;
-    text-color:       				@red;
+    background-color: 				@normal-background;
+    text-color:       				@active-background;
 }
 element selected.active {
-    background-color: 				@fg;
-    text-color:       				@bg;
+    background-color: 				@active-background;
+    text-color:       				@active-background;
 }
 element alternate.normal {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 				@normal-background;
+    text-color:       				@active-foreground;
 }
 element alternate.urgent {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 				@normal-background;
+    text-color:       				@urgent-background;
 }
 element alternate.active {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 				@active-background;
+    text-color:       				@active-foreground;
 }
 
 element-text, element-icon {
@@ -148,8 +148,8 @@ button {
 }
 
 button selected {
-    background-color:             	@cyan;
-    text-color: 					@fg;
+    background-color:             	@active-background;
+    text-color: 					@active-foreground;
     border: 						0px;
     border-radius: 					4px;
     border-color: 					@fg;
@@ -165,10 +165,10 @@ scrollbar {
 
 message {
     border: 						0px;
-    border-color: 					@ac;
+    border-color: 					@active-background;
     padding: 						1px;
 }
 
 textbox {
-    text-color: 					@fg;
+    text-color: 					@active-background;
 }
