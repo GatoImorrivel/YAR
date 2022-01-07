@@ -14,9 +14,11 @@ Use `setwallpaper` to change the system's wallpaper correctly.
 - Animated Wallpaper - xwinwrap
 
 # Screenshots
-<img src='/screenshots/wall.png'>
-<img src='/screenshots/averageunixpornuser.png'>
-<img src='/screenshots/rofi.png'>
+<img src='/screenshots/purpleunixporn.png'>
+<img src='/screenshots/purplerofi.png'>
+<img src='/screenshots/purplefirefox.png'>
+<img src='/screenshots/pywalexample1.png'>
+<img src='/screenshots/pywalexample2.png'>
 
 # Installing
 
