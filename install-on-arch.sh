@@ -72,6 +72,11 @@ echo "##############################"
 paru -Syu pywal
 
 echo "##############################"
+echo "Installing vim plug"
+echo "##############################"
+paru -Syu vim-plug
+
+echo "##############################"
 echo "Installing programs"
 echo "##############################"
 
