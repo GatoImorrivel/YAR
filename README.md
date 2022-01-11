@@ -4,7 +4,7 @@ All of the settings are made with **1920x1080** in mind, functionality in other 
 
 This rice is made in a way that allows the user to quickly update the colorscheme of the system using pywal.  
 Use `setwallpaper` to change the system's wallpaper correctly.  
-Use `generatecolorscheme` to change teh system's colors.
+Use `generatecolorscheme` to change the system's colors.
 
 ## Specs
 
