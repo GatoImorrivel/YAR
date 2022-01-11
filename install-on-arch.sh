@@ -16,6 +16,8 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit\
     mpv                             \
     ttf-cascadia-code               \
     rofi                            \
+    yarn                            \
+    nodejs                          \
     npm                             \
     xclip                           \
     cmake                           \
@@ -115,6 +117,7 @@ if [ -d $HOME/.config ]; then
     sudo cp -r $YARPATH/configs/scripts ~/.config
     sudo cp -r $YARPATH/configs/sxhkd ~/.config
     sudo cp -r $YARPATH/configs/xconfigs ~/.config
+    sudo cp -r $YARPATH/configs/nvim ~/.config
 else
     sudo cp -r "$YARPATH/configs" ~/
     sudo mv ~/configs ~/.config

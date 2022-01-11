@@ -11,3 +11,9 @@ IF YOU HAVE CHOSEN TO INSTALL FIREFOX DO THE FOLLOWING INSTRUCTIONS:
 2. RUN sudo pywalfox install.
 3. RUN pywalfox update.
 4. IF EVERYTHING WORKED YOUR FIREFOX SHOULD CHANGE COLORS.
+
+NVIM REMINDER:
+
+:CocInstall coc-lists
+:CocInstall coc-marketplace
+:CocList marketplace
