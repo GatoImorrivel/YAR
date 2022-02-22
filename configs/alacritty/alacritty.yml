@@ -67,7 +67,7 @@ colors:
     - { index: 20, color: '0xb2ccd6' }
     - { index: 21, color: '0xeeffff' }
 
-background_opacity: 1
+window.opacity: 1
 
 # cursor:
 #   style: Underline
