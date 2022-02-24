@@ -6,6 +6,13 @@ This rice is made in a way that allows the user to quickly update the colorschem
 Use `setwallpaper` to change the system's wallpaper correctly.  
 Use `generatecolorscheme` to change the system's colors.
 
+## Plans
+- [ ] - Replace Polybar with Eww
+- [ ] - Add dunst
+- [ ] - Create a dashboard
+- [ ] - Create a powermenu
+- [ ] - Change rofi's launcher position
+
 ## Specs
 
 - TWM - BSPWM
