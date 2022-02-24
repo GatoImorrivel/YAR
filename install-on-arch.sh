@@ -25,6 +25,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit\
 
 # Setup lightdm
 sudo systemctl enable lightdm &
+sudo pacman -Qq networkmanager && sudo systemctl enable systemd-networkd.service &
 
 # Installing NVIM
 sudo pacman -S --noconfirm --needed neovim
@@ -117,7 +118,7 @@ if [ -d $HOME/.config ]; then
     sudo cp -r $YARPATH/configs/bashrc ~/.config
     sudo cp -r $YARPATH/configs/bspwm ~/.config
     sudo cp -r $YARPATH/configs/picom ~/.config
-    sudo cp -r $YARPATH/configs/polybar ~/.config
+    sudo cp -r $YARPATH/configs/eww ~/.config
     sudo cp -r $YARPATH/configs/rofi ~/.config
     sudo cp -r $YARPATH/configs/scripts ~/.config
     sudo cp -r $YARPATH/configs/sxhkd ~/.config

@@ -10,7 +10,7 @@ killall -q -w polybar
 
 sxhkd &
 picom &
-polybar -c=~/.config/polybar/bar mybar -r &
+sh ~/.config/polybar/launch.sh &
 setwallpaper $(cat ~/.currentwallpaper)
 
 # Monitors
