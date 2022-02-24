@@ -8,6 +8,7 @@ Use `generatecolorscheme` to change the system's colors.
 
 ## Plans
 - [ ] - Replace Polybar with Eww
+- [ ] - Add dunst
 - [ ] - Create a dashboard
 - [ ] - Create a powermenu
 - [ ] - Change rofi's launcher position
