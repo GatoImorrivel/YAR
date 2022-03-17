@@ -7,11 +7,12 @@ Use `setwallpaper` to change the system's wallpaper correctly.
 Use `generatecolorscheme` to change the system's colors.
 
 ## Plans
-- [ ] - Replace Polybar with Eww
+- [x] - Replace Polybar with Eww
 - [ ] - Add dunst
 - [ ] - Create a dashboard
-- [ ] - Create a powermenu
-- [ ] - Change rofi's launcher position
+- [x] - Create a powermenu
+
+- [ ] - Maybe add configs for 1366 resolution
 
 ## Specs
 
@@ -28,8 +29,11 @@ Use `generatecolorscheme` to change the system's colors.
 <img src='/screenshots/pywalexample1.png'>
 <img src='/screenshots/pywalexample2.png'>
 
-# Installing
+# Installation
 
-    chmod +x ./install-on-arch.sh
-    sh install-on-arch.sh
-    await until the tomfoolery ends 
+    git clone https://github.com/GatoImorrivel/YAR.git
+    cd YAR
+    sudo chmod +x ./install-on-arch.sh
+    sudo sh install-on-arch.sh $(whoami)
+
+Follow additional installation steps provided in the `postinstallwarning` file for integrating pywal with other apps.

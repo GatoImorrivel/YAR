@@ -1,0 +1,31 @@
+(defwidget powermenu []
+  (box :orientation "h"
+       :class "main-power"
+      (box :class "shutoff-box"
+        (button :class "shutoff-btn" :onclick "shutdown now" "⏻")
+      )
+      (box :class "reboot-box"
+        (button :class "reboot-btn" :onclick "reboot" "")
+      )
+      (box :class "logoff-box"
+        (button :class "logoff-btn" :onclick "reboot" "ﴚ")
+      )
+      (box :class "close-box"
+        (button :class "close-btn" :onclick "eww close powermenu -c $(realpath .)" "")
+      )
+  )
+)
+
+(defwindow powermenu
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0px"
+                               :width "100%"
+                               :heigth "100%"
+                               :anchor "top left"
+                     )
+           :stacking "fg"
+           :windowtype "normal"
+           :wm-ignore true
+  (powermenu)
+)

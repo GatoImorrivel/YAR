@@ -1,0 +1,145 @@
+@import '/home/INSTALLINGUSERNAME/.cache/wal/colors.scss';
+
+$background: $color0;
+$background-lightish: darken($color1, 10%);
+$background-lighter: lighten($color0, 15%);
+
+$foreground: $color15;
+
+$primary: $color14;
+$secondary: $color12;
+
+$roundedness: 50px;
+
+////////////////////////////////////
+// BAR
+////////////////////////////////////
+
+* {
+  all: unset;
+}
+
+tooltip.background {
+  font-family: "DaddyTimeMono Nerd Font Mono";
+  background-color: darken($background, 5%);
+  font-size: 18;
+}
+
+tooltip label {
+  margin: 5px;
+}
+
+// Bars
+
+.bar {
+  background-color: $background;
+}
+
+.bar-left {
+  background-color: $background;
+}
+
+.bar-center {
+  background-color: $background;
+}
+
+.bar-right {
+  background-color: $background;
+}
+
+// Modules
+
+.archlogo {
+  font-family: "Symbols Nerd Font";
+  margin: 0px;
+  font-size: 1.75rem;
+  color: $primary;
+  margin-left: 40px;
+  &:hover {
+    color: $foreground;
+  }
+}
+
+.workspaces {
+  font-family: "Symbols Nerd Font";
+  background-color: $background-lighter;
+  border-radius: $roundedness;
+  margin-top: 1px;
+}
+
+.cpu-ram {
+  font-family: "Symbols Nerd Font";
+  background-color: $background-lighter;
+  border-radius: $roundedness;
+  color: $foreground;
+}
+
+.time-box {
+  background-color: $background-lighter;
+  padding: 0px 10px;
+  border-radius: $roundedness;
+  font-size: 1.5rem;
+  margin-top: 1px;
+  margin-right: 40px;
+}
+
+// Small stuff
+
+.time-clock {
+  font-family: "Symbols Nerd Font";
+  margin-top: 2px;
+}
+
+.time-time {
+  font-family: "DaddyTimeMono Nerd Font Mono";
+}
+
+.inner-circle {
+  font-family: "Symbols Nerd Font";
+  font-size: 9px;
+  margin-top: 0px;
+  margin-left: 1px;
+}
+
+.cpu, .ram {
+  background-color: darken($background-lighter, 10%);
+  margin: 2px;
+}
+
+.workspace-icon, .workspace-icon-first, .workspace-icon-last {
+  color: $foreground;
+  font-size: 1.25rem;
+  padding: 5px 10px;
+  &:hover {
+    background-color: $background-lightish;
+  }
+}
+
+.workspace-icon-first {
+  border-top-left-radius: $roundedness;
+  border-bottom-left-radius: $roundedness;
+}
+
+.workspace-icon-last {
+  border-top-right-radius: $roundedness;
+  border-bottom-right-radius: $roundedness;
+}
+
+////////////////////////////////////
+// POWERMENU
+////////////////////////////////////
+
+.shutoff-box, .reboot-box, .logoff-box ,.close-box {
+  font-size: 10rem;
+  background-color: $background;
+  border: 2px solid $primary;
+  border-radius: $roundedness;
+}
+
+.shutoff-btn, .reboot-btn, .logoff-btn, .close-btn {
+  color: $foreground;
+  &:hover {
+    color: #e43f5a;
+  }
+}
+

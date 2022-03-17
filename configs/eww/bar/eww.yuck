@@ -1,0 +1,118 @@
+(include "./powermenu.yuck")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Variables
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defvar eww "eww -c $(realpath .)")
+
+(deflisten workspacesgen "scripts/workspacesgen.sh")
+
+(defpoll time :interval "1s"
+              `date +%H:%M`)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Widget
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (barleft)
+    (barcenter)
+    (barright)
+  )
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Left part of the bar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwidget barleft []
+  (box :class "bar-left"
+       :orientation "h"
+       :halign "start"
+       :space-evenly false
+       :spacing 30
+
+      (button :class "archlogo" 
+              :tooltip "open dashboard"
+        ""
+        )
+
+      (literal :content workspacesgen) 
+   )
+ )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Center part of the bar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwidget barcenter []
+  (box :class "bar-center"
+       :orientation "h"
+       :space-evenly true
+   )
+ )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Right part of the bar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwidget barright []
+  (box :class "bar-right"
+       :orientation "h"
+       :space-evenly false
+       :halign "end"
+       :spacing 20
+      (box :class "cpu-ram"
+           :spacing -26
+           :width 100
+        (circular-progress :class "cpu"
+                           :start-at 75
+                           :value {EWW_CPU.avg}
+                           :thickness 4
+                           :clockwise true
+                           :tooltip "using ${round(EWW_CPU.avg, 0)}% cpu"
+            (box :class "inner-circle" "")
+          ) 
+        (circular-progress :class "ram"
+                           :start-at 75
+                           :value {EWW_RAM.used_mem_perc}
+                           :thickness 4
+                           :clockwise true
+                           :tooltip "using ${round(EWW_RAM.used_mem_perc, 0)}% ram"
+            (box :class "inner-circle" "")
+          ) 
+       )
+      (box :class "time-box"
+           :orientation "h"
+           :space-evenly false
+           :spacing 10
+          (box :class "time-clock" "") 
+          (button :class "time-time" time) 
+        )
+    )
+ )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Windows
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(defwindow bar
+          :monitor 0
+          :geometry (geometry :x "0%"
+                              :y "0px"
+                              :width "100%"
+                              :heigth "10px"
+                              :anchor "top center"
+                    )
+          :stacking "fg"
+          :windowtype "toolbar"
+          :wm-ignore true
+  (bar)
+)
+

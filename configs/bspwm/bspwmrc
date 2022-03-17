@@ -3,14 +3,18 @@
 # Colors
 . "${HOME}/.cache/wal/colors.sh"
 
+# Paths
+EWWBAR="$HOME/.config/eww/bar/"
+
 # Killing any possible previous processes
 killall -q -w picom
 killall -q -w sxhkd
-killall -q -w polybar
+killall -q -w eww
 
 sxhkd &
 picom &
-sh ~/.config/polybar/launch.sh &
+eww daemon -c $EWWBAR
+eww open bar -c $EWWBAR
 setwallpaper $(cat ~/.currentwallpaper)
 
 # Monitors
@@ -25,7 +29,7 @@ bspc config pointer_action2 resize_corner
 bspc config focused_border_color    "$color15"  
 bspc config normal_border_color     "$color0"
 
-bspc config top_padding         20
+bspc config top_padding         25
 bspc config border_width         3
 bspc config window_gap          12
 

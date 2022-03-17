@@ -4,6 +4,18 @@ YARPATH="$(pwd)"
 echo "Updating pacman, just wait a little"
 sudo pacman --noconfirm -Syu
 
+echo "##################################################################################"
+echo "NOTE: installing programs now will also add them to the colorscheme generation"
+echo "##################################################################################"
+
+sleep 3
+
+echo "Do you want to install Discord? 1) yes    2) no"
+read -r -p "(Default: 1): " discord
+
+echo "Do you want to install Firefox? 1) yes    2) no"
+read -r -p "(Default: 1): " firefox
+
 # Install dependecies
 echo "##############################"
 echo "Installing a bunch of stuff"
@@ -25,13 +37,12 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit\
 
 # Setup lightdm
 sudo systemctl enable lightdm &
-sudo pacman -Qq networkmanager && sudo systemctl enable systemd-networkd.service &
 
 # Installing NVIM
 sudo pacman -S --noconfirm --needed neovim
 
 echo "##############################"
-echo "installing Rust and alacritty"
+echo "installing Rust"
 echo "##############################"
 sudo pacman -S --needed rustup cargo
 
@@ -56,9 +67,9 @@ echo "##############################"
 paru -S --noconfirm --needed alacritty
 
 echo "##############################"
-echo "Installing polybar"
+echo "Installing eww"
 echo "##############################"
-paru -S --needed polybar
+paru -S --needed eww
 
 echo "##############################"
 echo "Installing xwinwrap"
@@ -81,15 +92,6 @@ echo "##############################"
 echo "Installing programs"
 echo "##############################"
 
-echo "##############################"
-echo "NOTE: installing programs now will also add them to the generatecolorscheme script"
-echo "##############################"
-
-sleep 2
-
-echo "Do you want to install Discord? 1) yes    2) no"
-read -r -p "(Default: 1): " discord
-
 if [ -z $discord ] || [ $discord -eq "1" ]; then
     sudo pacman -Syu discord
     
@@ -99,9 +101,6 @@ if [ -z $discord ] || [ $discord -eq "1" ]; then
     sudo chmod +x betterdiscordctl
     sudo mv betterdiscordctl /usr/local/bin
 fi
-
-echo "Do you want to install Firefox? 1) yes    2) no"
-read -r -p "(Default: 1): " firefox
 
 if [ -z $firefox ] || [ $firefox -eq "1" ]; then
     sudo pacman -Syu firefox
@@ -134,6 +133,8 @@ sudo cp ~/.config/scripts/setwallpaper.sh /bin/setwallpaper
 
 sudo chmod +x /bin/setwallpaper
 sudo chmod +x /bin/generatecolorscheme
+
+sed -i "s/INSTALLINGUSERNAME/$(whoami)" ~/.config/eww/scripts/workspacegen.sh
 
 sudo mv ~/.config/bashrc/.bashrc ~/.bashrc
 sudo rm -r ~/.config/bashrc
